@@ -6,6 +6,19 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   // Override default ignores of eslint-config-next.
+
+  // Prettier Plugin
+  {
+    plugins: {
+      prettier: prettierPlugin,
+    },
+    rules: {
+      "prettier/prettier": "error",
+    },
+  },
+
+  prettierConfig,
+
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
