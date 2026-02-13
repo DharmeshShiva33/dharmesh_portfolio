@@ -61,10 +61,10 @@ const Experience = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
-                className={`relative flex ${
+                className={`relative flex w-full ${
                   exp.side === "left"
-                    ? "justify-start pr-12"
-                    : "justify-end pl-12"
+                    ? "justify-start md:pr-12"
+                    : "justify-end md:pl-12"
                 }`}
               >
                 {/* Connector line */}
@@ -168,7 +168,7 @@ const Experience = () => {
                 </div>
 
                 {/* Timeline node */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-14">
+                <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-14">
                   <span
                     className="
                       relative flex h-5 w-5 rounded-full
