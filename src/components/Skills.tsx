@@ -30,7 +30,7 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-14">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
 
@@ -60,7 +60,7 @@ const Skills = () => {
                       min-h-[320px]
                       flex flex-col
                       rounded-3xl p-8
-                      bg-white/90 dark:bg-zinc-900/90
+                      bg-white/90 dark:bg-zinc-950
                       backdrop-blur-xl
                       border border-zinc-200/60 dark:border-zinc-800/60
                       shadow-xl shadow-black/5 dark:shadow-black/40
@@ -71,7 +71,7 @@ const Skills = () => {
                     <div className="flex items-center gap-4 mb-4">
                       <div
                         className="
-                  h-14 w-14 rounded-2xl
+                  h-10 w-10 rounded-2xl
                   flex items-center justify-center
                   bg-gradient-to-r
                   from-zinc-800 to-zinc-700
@@ -89,18 +89,18 @@ const Skills = () => {
                     </div>
 
                     {/* Skills */}
-                    <div className="flex flex-wrap gap-3 mb-auto">
+                    <div className="flex flex-wrap gap-3">
                       {category.skills.map((skill) => (
                         <span
                           key={skill}
                           className="
-                            px-4 py-2 text-sm font-bold tracking-widest
-                            rounded-xl
-                            border border-zinc-200 dark:border-zinc-600
-                            text-zinc-700 dark:text-slate-300
-                            bg-white/50 dark:bg-zinc-900/50
-                            hover:bg-zinc-100 dark:hover:bg-zinc-800
-                            transition-all
+                          px-3 py-1.5
+                          text-sm
+                          rounded-xl
+                          bg-zinc-200 dark:bg-zinc-800
+                          text-zinc-700 dark:text-slate-300
+                          transition-colors
+                          hover:bg-zinc-300 dark:hover:bg-zinc-700 tracking-wider
                           "
                         >
                           {skill}
