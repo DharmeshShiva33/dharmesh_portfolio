@@ -27,18 +27,17 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       whileTap={{ scale: 0.9 }}
       className="
-    p-5 rounded-full
-    bg-zinc-100 dark:bg-zinc-900
-    border border-zinc-300 dark:border-zinc-800
-    text-zinc-700 dark:text-zinc-200
-    transition-opacity duration-300
+      p-2 rounded-full
+      bg-zinc-100 dark:bg-zinc-900
+      text-zinc-700 dark:text-zinc-200
+      transition-opacity duration-300
 
-    opacity-80
-    hover:opacity-100
+      opacity-80
+      hover:opacity-100
 
-    dark:opacity-100
-    dark:hover:opacity-70
-  "
+      dark:opacity-100
+      dark:hover:opacity-70
+    "
       aria-label="Toggle Theme"
     >
       {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
