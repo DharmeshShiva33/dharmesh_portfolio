@@ -219,6 +219,33 @@ const Projects = () => {
                 </ul>
               </div>
 
+              {/* Infrastructure (Optional) */}
+              {selectedProject.details.infrastructure && (
+                <div className="mt-12">
+                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-slate-200">
+                    Infrastructure & Optimization
+                  </h3>
+
+                  <div className="flex flex-wrap gap-3 mt-4">
+                    {selectedProject.details.infrastructure.map(
+                      (item: string) => (
+                        <span
+                          key={item}
+                          className="
+                            px-4 py-2 text-sm rounded-xl
+                            border border-zinc-200 dark:border-zinc-700
+                            bg-zinc-50 dark:bg-zinc-800
+                            text-zinc-700 dark:text-slate-300
+                          "
+                        >
+                          {item}
+                        </span>
+                      ),
+                    )}
+                  </div>
+                </div>
+              )}
+
               {/* NDA */}
               <div
                 className="
@@ -234,7 +261,7 @@ const Projects = () => {
               >
                 <Info
                   size={18}
-                  className="mt-0.5 text-zinc-500 dark:text-slate-400 shrink-0"
+                  className="mt-1 text-zinc-500 dark:text-slate-400 shrink-0"
                 />
 
                 <p>

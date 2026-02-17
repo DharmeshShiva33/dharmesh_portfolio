@@ -4,6 +4,7 @@ export interface ProjectDetails {
   features: string[];
   challenges: string;
   outcome: string;
+  infrastructure?: string[];
 }
 
 export interface Project {
