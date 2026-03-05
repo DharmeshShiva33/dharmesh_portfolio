@@ -28,19 +28,28 @@ export const PROJECTS_DETAILS: Project[] = [
   },
   {
     id: 2,
-    title: "HR AGENT",
+    title: "HR Agent - AI Assisted Recruitment Platform",
     description:
-      "Public-facing company website with responsive UI and optimized performance.",
-    image: "/image2.avif",
-    tech: ["Next.js", "Tailwind", "SEO"],
+      "An internal recruitment management platform designed to automate candidate engagement and streamline resume processing using AI-driven workflows.",
+    image: "/hr-agent.png",
+    tech: ["Next.js", "Redux Toolkit", "Tailwind", "HTML", "CSS", "REST APIs"],
     live: "#",
     github: "#",
     details: {
-      overview: "A modern business website designed to showcase services.",
-      role: "Frontend Developer",
-      features: ["Responsive UI", "SEO optimization"],
-      challenges: "Maintaining consistency across devices.",
-      outcome: "Improved engagement and load speed.",
+      overview:
+        "HR Agent is an internal recruitment automation platform that processes resumes submitted through the company portal. The system integrates AI-driven workflows to automatically initiate candidate calls and determine interest levels. Based on AI interaction outcomes, shortlisted candidates are further scheduled for recruitment calls, improving hiring efficiency and automation.",
+      role: "Frontend Developer responsible for complete UI architecture, state management design, and integration of AI-driven recruitment workflows.",
+      features: [
+        "Designed and implemented complete UI architecture independently, including workflow planning and data-driven interface decisions.",
+        "Developed fully responsive user interfaces optimized for different devices.",
+        "Implemented centralized state management using Redux Toolkit for predictable and scalable data handling.",
+        "Integrated multiple APIs using Redux for efficient data fetching and state synchronization.",
+        "Utilized code generation techniques to create reusable common components for improved maintainability and code readability.",
+      ],
+      challenges:
+        "The primary challenge was designing a scalable UI architecture without predefined design references while ensuring seamless integration with AI-driven backend workflows. Maintaining clean state management across multiple API-driven modules required careful planning and centralized Redux architecture.",
+      outcome:
+        "Delivered a structured and scalable recruitment management interface that automated candidate engagement workflows and improved overall hiring process efficiency.",
     },
   },
   {
@@ -65,7 +74,7 @@ export const PROJECTS_DETAILS: Project[] = [
     title: "SeasonIndia - Premium Women's Fashion E-commerce",
     description:
       "A premium women's fashion e-commerce platform offering a wide range of high-quality and designer clothing collections with rich visual presentation.",
-    image: "/image2.avif",
+    image: "/seasons_india.png",
     tech: [
       "Angular 16",
       "Angular Material",

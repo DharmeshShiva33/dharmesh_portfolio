@@ -1,46 +1,56 @@
 "use client";
-
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
 
-type Theme = "light" | "dark";
+import { Sun, Moon } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
-export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
+const ThemeToggle = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    const savedTheme = (localStorage.getItem("theme") as Theme) || "dark";
-    setTheme(savedTheme);
-    document.documentElement.setAttribute("data-theme", savedTheme);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
-  const toggleTheme = () => {
-    const nextTheme: Theme = theme === "light" ? "dark" : "light";
-    setTheme(nextTheme);
-    document.documentElement.setAttribute("data-theme", nextTheme);
-    localStorage.setItem("theme", nextTheme);
-  };
+  if (!mounted) return <div className="w-8 h-8" />;
 
   return (
-    <motion.button
-      onClick={toggleTheme}
-      whileTap={{ scale: 0.9 }}
+    <button
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label="Toggle theme"
       className="
-      p-2 rounded-full
-      bg-zinc-100 dark:bg-zinc-900
-      text-zinc-700 dark:text-zinc-200
-      transition-opacity duration-300
-
-      opacity-80
-      hover:opacity-100
-
-      dark:opacity-100
-      dark:hover:opacity-70
-    "
-      aria-label="Toggle Theme"
+    w-9 h-9 flex items-center justify-center rounded-full
+    border border-zinc-200 dark:border-zinc-700
+    bg-zinc-100 dark:bg-zinc-800
+    text-zinc-700 dark:text-slate-300
+    hover:bg-zinc-200 dark:hover:bg-zinc-700
+    transition-all duration-300
+  "
     >
-      {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-    </motion.button>
+      <AnimatePresence mode="wait">
+        {theme === "dark" ? (
+          <motion.span
+            key="sun"
+            initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Sun size={16} className="text-amber-400" />
+          </motion.span>
+        ) : (
+          <motion.span
+            key="moon"
+            initial={{ opacity: 0, rotate: 90, scale: 0.5 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            exit={{ opacity: 0, rotate: -90, scale: 0.5 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Moon size={16} className="text-zinc-700" />
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </button>
   );
-}
+};
+
+export default ThemeToggle;
