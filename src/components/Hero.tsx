@@ -1,22 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Rocket, Layout, Terminal, Cpu, ArrowDown } from "lucide-react";
-
+import {
+  Code2,
+  Rocket,
+  Layout,
+  Terminal,
+  Cpu,
+  ArrowDown,
+  Download,
+} from "lucide-react";
 import FloatingIcon from "./FloatingIcon";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="
-        relative min-h-screen
-        flex items-center justify-center
-        bg-white dark:bg-zinc-950
-        transition-colors overflow-hidden
-      "
+      className="relative min-h-screen flex items-center justify-center bg-white dark:bg-zinc-950 transition-colors overflow-hidden"
     >
-      {/* ================= FLOATING ICON LAYER ================= */}
+      {/* ================= GRID PATTERN ================= */}
+      <div className="absolute inset-0 z-0">
+        {/* Light grid */}
+        <div
+          className="block dark:hidden absolute inset-0 opacity-[0.35]"
+          style={{
+            backgroundImage: `linear-gradient(to right, #e4e4e7 1px, transparent 1px),
+                              linear-gradient(to bottom, #e4e4e7 1px, transparent 1px)`,
+            backgroundSize: "48px 48px",
+          }}
+        />
+        {/* Dark grid */}
+        <div
+          className="hidden dark:block absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: `linear-gradient(to right, #3f3f46 1px, transparent 1px),
+                              linear-gradient(to bottom, #3f3f46 1px, transparent 1px)`,
+            backgroundSize: "48px 48px",
+          }}
+        />
+      </div>
+
+      {/* ================= GLOW ================= */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="hidden dark:block absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-slate-100/5 blur-[140px]" />
+        <div className="block dark:hidden absolute top-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-zinc-300/40 blur-[160px]" />
+      </div>
+
+      {/* ================= FLOATING ICONS ================= */}
       <div className="absolute inset-0 z-10">
         <FloatingIcon
           icon={<Code2 size={42} />}
@@ -45,108 +75,113 @@ export default function Hero() {
         />
       </div>
 
-      {/* ================= GLOW BACKGROUND ================= */}
-      <div className="absolute inset-0 z-0">
-        {/* Dark */}
-        <div className="hidden dark:block absolute top-[-25%] left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-slate-100/5 blur-[160px]" />
-        {/* Light */}
-        <div className="block dark:hidden absolute top-[-30%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-blue-600/30 blur-[180px]" />
-      </div>
-
       {/* ================= CONTENT ================= */}
-      <div className="relative z-20 max-w-4xl mx-auto px-6 text-center">
+      <div className="relative z-20 max-w-3xl mx-auto px-6 text-center flex flex-col items-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="
-          inline-flex items-center gap-2
-          px-4 py-1.5 rounded-full text-sm
-          bg-zinc-100 dark:bg-zinc-900
-          border border-zinc-200 dark:border-zinc-800
-          text-zinc-700 dark:text-slate-300
-          mb-6
-        "
+          transition={{ delay: 0.15 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide mb-8 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-slate-400"
         >
-          <span className="h-3 w-3 rounded-full bg-emerald-500 dark:bg-emerald-500 animate-pulse" />
-          Available for work
+          <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          Available for new opportunities
         </motion.div>
 
         {/* Heading */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35 }}
-          className="
-            text-4xl md:text-6xl font-bold tracking-tight
-            text-zinc-900 dark:text-zinc-100
-          "
+          transition={{ delay: 0.3 }}
+          className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]"
         >
-          Hi, I’m{" "}
+          <span className="text-zinc-900 dark:text-zinc-100">Hi, I'm </span>
+          <br />
           <span
             className="
-              bg-gradient-to-r
-              from-sky-500 via-cyan-500 to-teal-400
-              dark:from-slate-200 dark:via-slate-300 dark:to-slate-400
-              bg-clip-text text-transparent
-            "
+            text-zinc-900
+            dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-300 dark:to-slate-400
+            dark:bg-clip-text dark:text-transparent
+          "
           >
             Dharmesh
           </span>
         </motion.h1>
 
+        {/* Role pill */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.45 }}
+          className="mt-5 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-xs font-semibold tracking-widest uppercase text-zinc-500 dark:text-slate-400"
+        >
+          Frontend Developer
+        </motion.div>
+
         {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="
-            mt-6 text-lg md:text-xl
-            text-zinc-600 dark:text-slate-400
-            max-w-2xl mx-auto
-          "
+          transition={{ delay: 0.55 }}
+          className="mt-7 text-base md:text-lg text-zinc-500 dark:text-slate-400 max-w-xl mx-auto leading-relaxed"
         >
-          A Frontend Developer crafting clean, scalable, and user-friendly web
-          experiences using modern technologies.
+          Crafting clean, scalable, and user-friendly web experiences using
+          modern technologies like React, Next.js and Angular.
         </motion.p>
 
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.65 }}
-          className="mt-10 flex flex-wrap justify-center gap-4"
+          transition={{ delay: 0.68 }}
+          className="mt-10 flex flex-wrap justify-center gap-3"
         >
           <a
             href="#projects"
             className="
-              px-8 py-3 rounded-xl font-medium
-              bg-gradient-to-r
-              from-zinc-800 to-zinc-700
-              dark:from-slate-200 dark:to-slate-400
-              text-white dark:text-zinc-900
-              shadow-lg shadow-zinc-400/20 dark:shadow-slate-400/30
-              hover:opacity-90
-              transition
+              inline-flex items-center gap-2
+              px-7 py-3 rounded-xl font-medium text-sm
+              bg-zinc-900 text-white
+              dark:bg-zinc-100 dark:text-zinc-900
+              hover:opacity-90 transition-all
+              shadow-lg shadow-zinc-400/20 dark:shadow-zinc-200/10
             "
           >
             View My Work
           </a>
 
           <a
-            href="#about"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="
-              px-8 py-3 rounded-xl font-medium
-              bg-zinc-100 dark:bg-zinc-900
+              inline-flex items-center gap-2
+              px-7 py-3 rounded-xl font-medium text-sm
+              bg-white dark:bg-zinc-900
               text-zinc-700 dark:text-slate-300
               border border-zinc-200 dark:border-zinc-800
-              hover:bg-zinc-200 dark:hover:bg-zinc-800
-              transition
+              hover:bg-zinc-50 dark:hover:bg-zinc-800
+              hover:border-zinc-300 dark:hover:border-zinc-700
+              transition-all
             "
           >
-            Learn More
+            <Download size={14} />
+            Resume
           </a>
+        </motion.div>
+
+        {/* Divider with tech stack hint */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.85 }}
+          className="mt-14 flex items-center gap-4 text-xs text-zinc-400 dark:text-zinc-600"
+        >
+          <div className="h-px w-16 bg-zinc-200 dark:bg-zinc-800" />
+          <span className="tracking-widest uppercase">
+            React · Next.js · Angular · TypeScript
+          </span>
+          <div className="h-px w-16 bg-zinc-200 dark:bg-zinc-800" />
         </motion.div>
       </div>
 
@@ -158,8 +193,7 @@ export default function Hero() {
 
 const ScrollIndicator = () => {
   const handleScroll = () => {
-    const nextSection = document.getElementById("about");
-    nextSection?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -167,26 +201,24 @@ const ScrollIndicator = () => {
       className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 1 }}
+      transition={{ delay: 1.1 }}
     >
       <motion.button
         onClick={handleScroll}
-        animate={{ y: [0, 12, 0], opacity: [1, 0.6, 1] }}
-        transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-        whileHover={{ scale: 1.05 }}
+        animate={{ y: [0, 10, 0], opacity: [0.8, 0.4, 0.8] }}
+        transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+        whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="
           flex items-center justify-center
-          h-12 w-12 rounded-full
-          border border-zinc-300 dark:border-zinc-700
-          bg-white/70 dark:bg-zinc-900/70
-          backdrop-blur
-          shadow-lg
-          cursor-pointer
+          h-10 w-10 rounded-full
+          border border-zinc-200 dark:border-zinc-700
+          bg-white/80 dark:bg-zinc-900/80
+          backdrop-blur-sm shadow-md cursor-pointer
         "
         aria-label="Scroll to next section"
       >
-        <ArrowDown size={20} className="text-zinc-800 dark:text-slate-200" />
+        <ArrowDown size={16} className="text-zinc-500 dark:text-slate-400" />
       </motion.button>
     </motion.div>
   );
