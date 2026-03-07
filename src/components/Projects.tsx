@@ -36,7 +36,6 @@ const Projects = () => {
 
       <div className="max-w-6xl mx-auto px-6">
         <AnimatePresence mode="wait">
-          {/* ================= GRID VIEW ================= */}
           {!selectedProject && (
             <motion.div
               key="grid"
@@ -70,7 +69,6 @@ const Projects = () => {
                 <div className="mt-8 h-px w-full bg-gradient-to-r from-zinc-200 via-zinc-300 to-transparent dark:from-zinc-700 dark:via-zinc-600 dark:to-transparent" />
               </motion.div>
 
-              {/* Cards */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {PROJECTS_DETAILS.map((project, index) => (
                   <motion.div
@@ -82,7 +80,6 @@ const Projects = () => {
                     whileHover={{ y: -6 }}
                     className="group flex flex-col rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-200/50 dark:hover:shadow-black/40 transition-all duration-300"
                   >
-                    {/* Image */}
                     <div className="relative h-48 overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                       <Image
                         src={project.image}
@@ -92,7 +89,6 @@ const Projects = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                      {/* Live button on hover */}
                       {project.live && (
                         <a
                           href={project.live}
@@ -107,7 +103,6 @@ const Projects = () => {
                       )}
                     </div>
 
-                    {/* Content */}
                     <div className="flex flex-col flex-1 p-5 gap-4">
                       <div>
                         <h3 className="font-semibold text-zinc-900 dark:text-slate-200 tracking-tight">
@@ -118,7 +113,6 @@ const Projects = () => {
                         </p>
                       </div>
 
-                      {/* Tech tags */}
                       <div className="flex flex-wrap gap-1.5">
                         {project.tech.slice(0, 4).map((tech) => (
                           <span
@@ -135,7 +129,6 @@ const Projects = () => {
                         )}
                       </div>
 
-                      {/* View details */}
                       <button
                         onClick={() => handleSelect(project)}
                         className="mt-auto flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-medium hover:opacity-90 transition"
