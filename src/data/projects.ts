@@ -17,7 +17,7 @@ export const PROJECTS_DETAILS: Project[] = [
       "Tailwind",
     ],
 
-    live: "#",
+    live: "https://cc.newtonai.tech/",
     github: "#",
     details: {
       overview:

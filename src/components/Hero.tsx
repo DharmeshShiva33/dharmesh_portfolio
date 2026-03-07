@@ -151,9 +151,9 @@ export default function Hero() {
           </a>
 
           <a
-            href="/resume.pdf"
-            target="_blank"
+            href="/Dharmesh_Resume.pdf"
             rel="noopener noreferrer"
+            download
             className="
               inline-flex items-center gap-2
               px-7 py-3 rounded-xl font-medium text-sm
