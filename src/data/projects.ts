@@ -6,7 +6,7 @@ export const PROJECTS_DETAILS: Project[] = [
     title: "Student Management Portal",
     description:
       "Internal CRM application used to manage customers, leads, and analytics.",
-    image: "/BIA _ Student Portal.png",
+    image: "/BIA-Student-Portal.png",
     tech: [
       "React",
       "Axios",
