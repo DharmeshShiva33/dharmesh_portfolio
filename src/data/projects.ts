@@ -17,7 +17,7 @@ export const PROJECTS_DETAILS: Project[] = [
       "Tailwind",
     ],
 
-    live: "https://cc.newtonai.tech/",
+    live: "https://campusconnect.bostoninstituteofanalytics.org/",
     github: "#",
     details: {
       overview:
@@ -211,7 +211,7 @@ export const PROJECTS_DETAILS: Project[] = [
       "Flexbox",
       "CSS",
     ],
-    live: "#",
+    live: "https://app.getqualifi.ai/",
     github: "#",
     details: {
       overview:
